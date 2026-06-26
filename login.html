@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ELEVEN SKY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container glass">
+        <div class="logo">ELEVEN SKY</div>
+        <h2>Welcome Back</h2>
+        <form id="login-form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <label><input type="checkbox"> Remember Me</label>
+            <button type="submit" class="btn primary">Login</button>
+        </form>
+        <div class="social-login">
+            <button onclick="googleLogin()">Google</button>
+            <button onclick="githubLogin()">GitHub</button>
+        </div>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
