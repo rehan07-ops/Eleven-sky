@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ELEVEN SKY • Live Video</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="video-page dark">
+    <div class="video-wrapper">
+        <!-- Main Video Feed -->
+        <video id="remoteVideo" autoplay playsinline class="main-video"></video>
+        
+        <!-- Local Self View -->
+        <div class="local-pip glass">
+            <video id="localVideo" autoplay playsinline muted class="self-video"></video>
+            <div class="pip-controls">
+                <button onclick="flipCamera()" class="pip-btn">🔄</button>
+            </div>
+        </div>
+
+        <!-- Top Status Bar -->
+        <div class="video-top-bar glass">
+            <div class="call-info">
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span>LIVE</span>
+                </div>
+                <span id="timer" class="timer">00:00</span>
+            </div>
+            <div class="status-indicators">
+                <span id="fps" class="indicator">60 FPS</span>
+                <span id="network" class="indicator">5G • Excellent</span>
+            </div>
+        </div>
+
+        <!-- Bottom Dock -->
+        <div class="bottom-dock glass">
+            <button onclick="toggleMic()" id="mic-btn" class="dock-btn active">🎤</button>
+            <button onclick="toggleCamera()" id="cam-btn" class="dock-btn active">📹</button>
+            <button onclick="flipCamera()" class="dock-btn">↔️</button>
+            <button onclick="toggleFilters()" class="dock-btn">✨</button>
+            <button onclick="toggleChat()" class="dock-btn">💬</button>
+            <button onclick="startRecording()" id="record-btn" class="dock-btn record-btn">⏺</button>
+            <button onclick="toggleFullscreen()" class="dock-btn">⛶</button>
+            <button onclick="endCall()" class="dock-btn end-btn">✕</button>
+        </div>
+
+        <!-- Chat Overlay -->
+        <div id="chat-overlay" class="chat-overlay glass hidden">
+            <div class="chat-header">
+                <h3>Live Chat</h3>
+                <button onclick="toggleChat()" class="close-chat">✕</button>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Send a message..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button onclick="sendMessage()" class="send-btn">↑</button>
+            </div>
+        </div>
+
+        <!-- Filters Drawer -->
+        <div id="filters-drawer" class="filters-drawer glass hidden">
+            <div class="drawer-header">
+                <h3>AI Beauty & Effects</h3>
+                <button onclick="toggleFilters()" class="close-drawer">✕</button>
+            </div>
+            <div class="filter-list">
+                <button onclick="applyFilter(this)" data-filter="natural">Natural Beauty</button>
+                <button onclick="applyFilter(this)" data-filter="glow">Glow</button>
+                <button onclick="applyFilter(this)" data-filter="smooth">Skin Smooth</button>
+                <button onclick="applyFilter(this)" data-filter="slim">Face Slim</button>
+                <button onclick="applyFilter(this)" data-filter="cartoon">Cartoon</button>
+                <button onclick="applyFilter(this)" data-filter="cyberpunk">Cyberpunk</button>
+                <!-- More filters as per spec -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
